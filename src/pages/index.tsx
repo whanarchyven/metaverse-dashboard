@@ -3,10 +3,16 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from "@/components/Layout";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
+const router =useRouter()
+
 export default function Home() {
+
+    useEffect(()=>{router.push('/statistics')})
   return (
     <>
       <Head>
@@ -16,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Layout title={'Statistics'}>
-            SUka
+
         </Layout>
     </>
   )
