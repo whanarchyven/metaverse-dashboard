@@ -8,10 +8,10 @@ import {useEffect} from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const router =useRouter()
+
 
 export default function Home() {
-
+    const router =useRouter()
     useEffect(()=>{router.push('/statistics')})
   return (
     <>
