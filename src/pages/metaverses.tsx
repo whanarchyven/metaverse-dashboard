@@ -51,7 +51,7 @@ export default function Home() {
                 <div className={'grid grid-cols-12'}>
                     <div className={'grid grid-rows-2 col-span-10 grid-cols-3 gap-5'}>
                         {tableData.map((item) => {
-                            return <div className={'flex flex-col items-center'} onClick={()=>{router.push('/metaverse')}}>
+                            return <div key={item.name} className={'flex flex-col items-center'} onClick={()=>{router.push('/metaverse')}}>
                                 <div className={'border-2 rounded-xl relative w-full aspect-square overflow-hidden'}>
                                     <Image src={`/images/metaverses/${item.name}.jpg`} alt={item.name} layout={'fill'} className={'rounded-xl object-cover hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>
                                 </div>

@@ -131,7 +131,7 @@ export default function Home() {
                             <td><p className={'font-bold text-xl'}>Users</p></td>
                             <td><p className={'font-bold text-xl'}>Income</p></td>
                         </tr>
-                        {tableData.map((item)=>{return <tr>
+                        {tableData.map((item)=>{return <tr key={item.name}>
                             <td className={'font-bold '}><p className={'text-xl'}>{item.name}</p></td>
                             <td className={'font-bold '}><p className={'text-xl'}>{item.users}</p></td>
                             <td className={'font-bold '}><p className={'text-xl'}>{item.price} $</p></td>

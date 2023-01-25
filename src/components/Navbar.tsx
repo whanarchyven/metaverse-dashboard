@@ -37,7 +37,7 @@ const Navbar = () => {
                     }}
                 >
                     {pages.map(item => {
-                        return <div className={'w-full hover:red-grad  cursor-pointer flex items-center justify-start pl-2 '} onClick={()=>{router.push(`/${item.toLowerCase()}`)}}>
+                        return <div key={item} className={'w-full hover:red-grad  cursor-pointer flex items-center justify-start pl-2 '} onClick={()=>{router.push(`/${item.toLowerCase()}`)}}>
                             <div className={'relative transition w-10 aspect-square'}><Image src={`/images/icons/${item}.svg`}
                                                                                   layout={'fill'} alt={item}/></div>
                             <p className={'text-2xl animate-text-oppacity font-bold ml-2 '+translateColor(item)}>{item}</p>
@@ -53,7 +53,7 @@ const Navbar = () => {
                     }}
                 >
                     {pages.map(item => {
-                        return <div className={'w-full cursor-pointer flex items-center justify-start pl-2 '}>
+                        return <div key={item} className={'w-full cursor-pointer flex items-center justify-start pl-2 '}>
                             <div className={'relative w-10 aspect-square'}><Image src={`/images/icons/${item}.svg`}
                                                                                   layout={'fill'} alt={item}/></div>
                         </div>
