@@ -51,7 +51,7 @@ export default function Home() {
                 <div className={'grid grid-cols-12'}>
                     <div className={'grid grid-rows-2 col-span-10 grid-cols-3 gap-5'}>
                         {tableData.map((item) => {
-                            return <div key={item.name} className={'flex flex-col items-center'} onClick={()=>{router.push('/metaverse')}}>
+                            return <div key={item.name} className={'flex flex-col items-center'} onClick={()=>{router.push(item.name.toLowerCase())}}>
                                 <div className={'border-2 rounded-xl relative w-full aspect-square overflow-hidden'}>
                                     <Image src={`/images/metaverses/${item.name}.jpg`} alt={item.name} layout={'fill'} className={'rounded-xl object-cover hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>
                                 </div>
@@ -60,7 +60,7 @@ export default function Home() {
                             </div>
                         })}
                     </div>
-                    <div className={'fixed right-12 flex flex-col items-center justify-center'}>
+                    <div className={'fixed right-12 flex flex-col items-center justify-center'} onClick={()=>{router.push('/metaverse')}}>
                         <div className={'w-24 top-32 h-24 relative'}>
                             <Image src={'/images/icons/addButton.svg'} alt={'add'} layout={'fill'} className={'hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>
                         </div>

@@ -50,7 +50,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Layout title={'Roblox'}>
+            <Layout title={'Add new Metaverse'}>
                 <div className={'flex items-center w-[700px]'}>
                     <div className={'flex flex-col items-center'}>
                         <p className={'font-bold text-white text-2xl mb-3'}>Your asset</p>

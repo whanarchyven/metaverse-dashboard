@@ -47,27 +47,27 @@ const renderTime = ({ remainingTime }:any) => {
 
 const tableData=[
     {
-        name:'Roblox',
+        name:'Ariel',
         users:1234,
         price:1234,
     },
     {
-        name:'McDonalds',
+        name:'Mankind',
         users:1234,
         price:1234,
     },
     {
-        name:'SandBox',
+        name:'LerIos',
         users:1234,
         price:1234,
     },
     {
-        name:'Meta',
+        name:'BubbleKvas',
         users:1234,
         price:1234,
     },
     {
-        name:'Hive',
+        name:'SeekerOL',
         users:1234,
         price:1234,
     },
@@ -79,31 +79,31 @@ export const data = {
     labels,
     datasets: [
         {
-            label: 'Roblox',
+            label: 'Ariel',
             data: [123,412,546,223,543],
             borderColor: '#FF3F4E',
             backgroundColor: '#FF3F4E',
         },
         {
-            label: 'McDonalds',
+            label: 'Mankind',
             data: [323,212,246,523,443],
             borderColor: '#EE87FF',
             backgroundColor: '#EE87FF',
         },
         {
-            label: 'SandBox',
+            label: 'LerIos',
             data: [143,212,146,153,643],
             borderColor: '#49B3FF',
             backgroundColor: '#49B3FF',
         },
         {
-            label: 'Meta',
+            label: 'BubbleKvas',
             data: [223,212,246,223,743],
             borderColor: '#5FD9FF',
             backgroundColor: '#5FD9FF',
         },
         {
-            label: 'Hive',
+            label: 'SeekerOL',
             data: [423,512,646,323,243],
             borderColor: '#5FFFCF',
             backgroundColor: '#5FFFCF',
@@ -121,14 +121,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <Layout title={'Statistics'}>
+        <Layout title={'Roblox'}>
             <div className={'grid grid-cols-2 gap-8 p-4 items-start'}>
                 <div>
                     <table className="iksweb">
                         <tbody className={''}>
                         <tr>
-                            <td><p className={'font-bold text-xl'}>Metaverse</p></td>
-                            <td><p className={'font-bold text-xl'}>Users</p></td>
+                            <td><p className={'font-bold text-xl'}>Clan | group</p></td>
+                            <td><p className={'font-bold text-xl'}>Hours</p></td>
                             <td><p className={'font-bold text-xl'}>Income</p></td>
                         </tr>
                         {tableData.map((item)=>{return <tr key={item.name}>
