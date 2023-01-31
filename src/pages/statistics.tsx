@@ -79,37 +79,83 @@ export const data = {
     labels,
     datasets: [
         {
-            label: 'Roblox',
-            data: [123,412,546,223,543],
+            label: 'BrainTonNFT',
+            data: [123,412,'546 $','21/30'],
+            borderColor: '#FFB803',
+            backgroundColor: '#FFB803',
+            borderRadius:4,
+        },
+        {
+            label: 'Freetonbomb',
+            data: [323,212,'246 $','21/30'],
             borderColor: '#FF3F4E',
             backgroundColor: '#FF3F4E',
+            borderRadius:4,
         },
         {
-            label: 'McDonalds',
-            data: [323,212,246,523,443],
-            borderColor: '#EE87FF',
-            backgroundColor: '#EE87FF',
+            label: 'Web3ton',
+            data: [143,212,'146 $','21/30'],
+            borderColor: '#A34EDF',
+            backgroundColor: '#A34EDF',
+            borderRadius:4,
         },
         {
-            label: 'SandBox',
-            data: [143,212,146,153,643],
-            borderColor: '#49B3FF',
-            backgroundColor: '#49B3FF',
+            label: 'Anonimous',
+            data: [223,212,'246 $','21/30'],
+            borderColor: '#C2F970',
+            backgroundColor: '#C2F970',
+            borderRadius:4,
         },
-        {
-            label: 'Meta',
-            data: [223,212,246,223,743],
-            borderColor: '#5FD9FF',
-            backgroundColor: '#5FD9FF',
-        },
-        {
-            label: 'Hive',
-            data: [423,512,646,323,243],
-            borderColor: '#5FFFCF',
-            backgroundColor: '#5FFFCF',
-        },
+
     ],
 };
+
+
+const chartOptions={
+    scales : {
+        x:{
+            grid:{
+                display:false
+            },
+            ticks:{
+                font:{
+                    weight:'bold',
+                    family: 'Roboto',
+                    size:16
+                }
+            }
+        },
+        y:{
+            ticks:{
+                font:{
+                    weight:'bold',
+                    family: 'Roboto',
+                    size:12
+                },
+
+            }
+        }
+    },
+    plugins: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                font: {
+                    family:"Roboto",
+                    weight:'bold',
+                    size:14
+                }
+            }
+        },
+        datalabels:{
+            font:{
+                weight: 'bold'
+            }
+        }
+    }
+}
+ChartJS.defaults.color='#fff';
+ChartJS.defaults.borderColor='#fff';
 
 
 export default function Home() {
@@ -123,50 +169,40 @@ export default function Home() {
       </Head>
         <Layout title={'Statistics'}>
             <div className={'grid grid-cols-2 gap-8 p-4 items-start'}>
-                <div>
-                    <table className="iksweb">
-                        <tbody className={''}>
-                        <tr>
-                            <td><p className={'font-bold text-xl'}>Metaverse</p></td>
-                            <td><p className={'font-bold text-xl'}>Users</p></td>
-                            <td><p className={'font-bold text-xl'}>Income</p></td>
-                        </tr>
-                        {tableData.map((item)=>{return <tr key={item.name}>
-                            <td className={'font-bold '}><p className={'text-xl'}>{item.name}</p></td>
-                            <td className={'font-bold '}><p className={'text-xl'}>{item.users}</p></td>
-                            <td className={'font-bold '}><p className={'text-xl'}>{item.price} $</p></td>
-                        </tr>})}
-
-                        </tbody>
-                    </table>
+                <div className={'bg-offset w-full p-4'}>
+                    {data.datasets.map((item,counter)=>{
+                        return <div className={'grid border-b-[1px] border-white my-3 py-2 items-center grid-cols-7'}>
+                            <div className={'w-10 aspect-square relative'}>
+                                <Image src={`/images/metaverses/logos/${item.label}.png`} alt={'brain'} layout={'fill'}></Image>
+                            </div>
+                            <p className={'text-white text-lg col-span-2 font-bold'}>{counter+1}. {item.label}</p>
+                            {item.data.map((dataset)=>{
+                                return <p className={'text-white text-lg col-span-1 font-bold'}>{dataset}</p>
+                            })}
+                        </div>
+                    })}
                 </div>
                 <div className={'flex flex-col items-center'}>
-                    <div className={'p-5 w-full mb-5 bg-white'}>
-                        <Bar data={data}></Bar>
-                    </div>
-                    <div className={'my-8 w-48 h-48 flex relative items-center justify-center'}>
-                        <div className={'w-full h-full absolute top-0 left-0'}>
-                            <Image src={'/images/donut_diagram.svg'} alt={'donut'} layout={'fill'}></Image>
-                        </div>
-                        <p className={'text-white w-40 font-bold text-center text-xl'}>Time till first sale:<br/>23:47</p>
+                    <div className={'p-5 w-full mb-5 bg-offset rounded-xl'}>
+                        <Bar options={chartOptions} data={data}></Bar>
                     </div>
                 </div>
                 <div className={'grid w-full col-span-2 grid-cols-2 grid-rows-2 gap-5'}>
-                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center '}>
-                        <p className={'red-grad font-bold text-xl'}>MF</p>
-                        <Line data={data}></Line>
+                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center bg-offset rounded-xl '}>
+                        <p className={'text-white self-start mb-3 font-bold text-2xl'}>MF</p>
+                        <Line options={chartOptions} data={data}></Line>
                     </div>
-                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center '}>
-                        <p className={'blue-grad font-bold text-xl'}>Header</p>
-                        <Line data={data}></Line>
+                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center bg-offset rounded-xl '}>
+                        <p className={'text-white self-start mb-3 font-bold text-2xl'}>Header</p>
+                        <Line options={chartOptions} data={data}></Line>
                     </div>
-                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center '}>
-                        <p className={'green-grad font-bold text-xl'}>LTV</p>
-                        <Line data={data}></Line>
+                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center bg-offset rounded-xl '}>
+                        <p className={'text-white self-start mb-3 font-bold text-2xl'}>LTV</p>
+                        <Line options={chartOptions} data={data}></Line>
                     </div>
-                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center '}>
-                        <p className={'purple-grad font-bold text-xl'}>Retention</p>
-                        <Line data={data}></Line>
+                    <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center bg-offset rounded-xl '}>
+                        <p className={'text-white self-start mb-3 font-bold text-2xl'}>Retention</p>
+                        <Line options={chartOptions} data={data}></Line>
                     </div>
 
                 </div>
