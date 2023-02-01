@@ -16,22 +16,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Layout title={'Marketing tools'}>
-            <div className={'w-[700px] h-[400px] relative'}>
-                <Image src={'/images/marketing_tools.png'} alt={'marketing tools'} layout={'fill'}></Image>
+            <div className={'w-[1000px] bg-offset h-[450px] p-4 relative'}>
+                <Image src={'/images/marketing_tools.svg'} alt={'marketing tools'} layout={'fill'}></Image>
             </div>
-            <div className={'w-[700px] flex items-center justify-center'}>
-                <button className={'blue-button w-96 h-12 text-2xl border-2 border-white text-white font-bold mt-4'}>Quests / scripts</button>
-            </div>
-            <div className={'w-[700px] mt-12 flex items-center justify-around'}>
-                <div className={'w-24 h-24 relative hover:scale-125 transition-all duration-300 cursor-pointer'}>
+            <div className={'w-[700px] flex mt-5 items-center justify-center'}>
+                <button className={'blue-button w-96 h-12 text-2xl border-2 border-white text-white font-bold'}>Quests / scripts</button>
+                <div className={'w-12 h-12 relative hover:opacity-100 hover:scale-110 opacity-50 mx-5 transition-all duration-300 cursor-pointer'}>
                     <Image src={'/images/icons/mail.svg'} alt={'mail'} layout={'fill'}></Image>
                 </div>
-                <div className={'w-24 h-24 relative hover:scale-125 transition-all duration-300 cursor-pointer'}>
+                <div className={'w-12 h-12 relative hover:opacity-100 hover:scale-110 opacity-50 mx-5 transition-all duration-300 cursor-pointer'}>
                     <Image src={'/images/icons/gamepad.svg'} alt={'mail'} layout={'fill'}></Image>
                 </div>
-                <div className={'w-24 h-24 relative hover:scale-125 transition-all duration-300 cursor-pointer'}>
+                <div className={'w-12 h-12 relative hover:opacity-100 hover:scale-110 opacity-50 mx-5 transition-all duration-300 cursor-pointer'}>
                     <Image src={'/images/icons/player.svg'} alt={'mail'} layout={'fill'}></Image>
                 </div>
+            </div>
+            <div className={'w-[700px] mt-12 flex items-center justify-around'}>
+
             </div>
             <div className={'w-[700px] mt-12 flex items-center justify-center'}>
                 <p className={'text-white font-bold text-5xl'}>Costumer communication</p>

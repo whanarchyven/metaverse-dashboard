@@ -36,8 +36,10 @@
         box-shadow: 0px 4px 44px rgba(125, 161, 206, 0.3);
         backdrop-filter: blur(27px);
         /* Note: backdrop-filter has minimal browser support */
-
         border-radius: 36px;
+    }
+    .shrine{
+        box-shadow: 0px 4px 44px #5FD8FF;
     }
 }
 

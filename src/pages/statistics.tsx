@@ -80,32 +80,44 @@ export const data = {
     datasets: [
         {
             label: 'BrainTonNFT',
-            data: [123,412,'546 $','21/30'],
+            data: [58, 16, 27, 1,50],
             borderColor: '#FFB803',
             backgroundColor: '#FFB803',
             borderRadius:4,
+            lineTension:0.2
         },
         {
             label: 'Freetonbomb',
-            data: [323,212,'246 $','21/30'],
+            data: [35, 90, 73, 40, 12],
             borderColor: '#FF3F4E',
             backgroundColor: '#FF3F4E',
             borderRadius:4,
+            lineTension:0.3
         },
         {
             label: 'Web3ton',
-            data: [143,212,'146 $','21/30'],
+            data: [20,18,99,46,68],
             borderColor: '#A34EDF',
             backgroundColor: '#A34EDF',
             borderRadius:4,
+            lineTension:0.3
+        },
+        {
+            label: 'TonBoom',
+            data: [32, 51, 14, 84, 88],
+            borderColor: '#FFF',
+            backgroundColor: '#FFF',
+            borderRadius:4,
+            lineTension:0.2
         },
         {
             label: 'Anonimous',
-            data: [223,212,'246 $','21/30'],
+            data: [49, 9, 38, 41, 82],
             borderColor: '#C2F970',
             backgroundColor: '#C2F970',
             borderRadius:4,
         },
+
 
     ],
 };
@@ -144,7 +156,9 @@ const chartOptions={
                     family:"Roboto",
                     weight:'bold',
                     size:14
-                }
+                },
+                usePointStyle:true,
+
             }
         },
         datalabels:{
@@ -171,13 +185,13 @@ export default function Home() {
             <div className={'grid grid-cols-2 gap-8 p-4 items-start'}>
                 <div className={'bg-offset w-full p-4'}>
                     {data.datasets.map((item,counter)=>{
-                        return <div className={'grid border-b-[1px] border-white my-3 py-2 items-center grid-cols-7'}>
+                        return <div key={item.label} className={'grid border-b-[1px] border-white my-3 py-2 items-center grid-cols-8'}>
                             <div className={'w-10 aspect-square relative'}>
                                 <Image src={`/images/metaverses/logos/${item.label}.png`} alt={'brain'} layout={'fill'}></Image>
                             </div>
                             <p className={'text-white text-lg col-span-2 font-bold'}>{counter+1}. {item.label}</p>
                             {item.data.map((dataset)=>{
-                                return <p className={'text-white text-lg col-span-1 font-bold'}>{dataset}</p>
+                                return <p key={dataset} className={'text-white text-lg col-span-1 text-center font-bold'}>{dataset}</p>
                             })}
                         </div>
                     })}

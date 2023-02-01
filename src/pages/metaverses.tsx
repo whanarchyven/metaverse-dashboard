@@ -56,16 +56,21 @@ export default function Home() {
                                     <Image src={`/images/metaverses/${item.name}.jpg`} alt={item.name} layout={'fill'} className={'rounded-xl object-cover hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>
                                 </div>
                                 <p className={'font-bold text-white text-2xl mt-4'}>{item.name}</p>
-
                             </div>
                         })}
-                    </div>
-                    <div className={'fixed right-12 flex flex-col items-center justify-center'} onClick={()=>{router.push('/metaverse')}}>
-                        <div className={'w-24 top-32 h-24 relative'}>
-                            <Image src={'/images/icons/addButton.svg'} alt={'add'} layout={'fill'} className={'hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>
+                        <div className={'flex flex-col items-center'}>
+                            <div className={'border-2 rounded-xl relative text-9xl font-bold text-white w-full aspect-square bg-offset'}>
+                                <span className={'w-full h-full items-center justify-center opacity-50 hover:opacity-100 hover:scale-125 duration-200 transition-all cursor-pointer flex'}><p>+</p></span>
+                            </div>
+                            <p className={'font-bold text-white text-2xl mt-4'}>Add metaverse</p>
                         </div>
-                        <p className={'text-white  text-center font-bold mt-36'}>Add <br/> Metaverse</p>
                     </div>
+                    {/*<div className={'fixed right-12 flex flex-col items-center justify-center'} onClick={()=>{router.push('/metaverse')}}>*/}
+                    {/*    <div className={'w-24 top-32 h-24 relative'}>*/}
+                    {/*        <Image src={'/images/icons/addButton.svg'} alt={'add'} layout={'fill'} className={'hover:scale-125 transition-all duration-500 cursor-pointer'}></Image>*/}
+                    {/*    </div>*/}
+                    {/*    <p className={'text-white  text-center font-bold mt-36'}>Add <br/> Metaverse</p>*/}
+                    {/*</div>*/}
                 </div>
             </Layout>
         </>
