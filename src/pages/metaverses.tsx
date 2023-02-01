@@ -60,7 +60,7 @@ export default function Home() {
                         })}
                         <div className={'flex flex-col items-center'}>
                             <div className={'border-2 rounded-xl relative text-9xl font-bold text-white w-full aspect-square bg-offset'}>
-                                <span className={'w-full h-full items-center justify-center opacity-50 hover:opacity-100 hover:scale-125 duration-200 transition-all cursor-pointer flex'}><p>+</p></span>
+                                <span className={'w-full h-full items-center justify-center opacity-50 hover:opacity-100 hover:scale-125 duration-200 transition-all cursor-pointer flex'} onClick={()=>{router.push('/metaverse')}}><p>+</p></span>
                             </div>
                             <p className={'font-bold text-white text-2xl mt-4'}>Add metaverse</p>
                         </div>
