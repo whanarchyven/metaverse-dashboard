@@ -200,6 +200,7 @@ export default function Home() {
                     <div className={'p-5 w-full mb-5 bg-offset rounded-xl'}>
                         <Bar options={chartOptions} data={data}></Bar>
                     </div>
+                    <p className={'text-2xl font-bold text-white'}>Conversion</p>
                 </div>
                 <div className={'grid w-full col-span-2 grid-cols-2 grid-rows-2 gap-5'}>
                     <div className={'p-5 w-full mb-5 bg-white flex flex-col items-center bg-offset rounded-xl '}>
