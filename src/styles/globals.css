@@ -1,46 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body{
+    font-family: 'Inter';
+}
+
+#nav-icon3 {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    /*margin: 30px auto;*/
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+#nav-icon3 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #337AB7;
+    border-radius: 222px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+#nav-icon3 span:nth-child(1) {
+    top: 0px;
+}
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+    top: 7px;
+}
+#nav-icon3 span:nth-child(4) {
+    top: 14px;
+}
+#nav-icon3.open span:nth-child(1) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+}
+#nav-icon3.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+#nav-icon3.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+#nav-icon3.open span:nth-child(4) {
+    top: 7px;
+    width: 0%;
+    left: 50%;
+}
+
+
 @layer utilities {
-    .red-grad{
-        background: linear-gradient(90deg, #C74A54 0%, #FF3F4E 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .blue-grad{
-        background: linear-gradient(90deg, #5F61FF 0%, #49B3FF 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .green-grad{
-        background: linear-gradient(90deg, #65D6CB 0%, #5FFFCF 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .purple-grad{
-        background: linear-gradient(90deg, #A34EDF 0%, #EE87FF 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+
     .back-grad{
-        background: linear-gradient(56.59deg, #A34EDF 0%, #557AFF 27.6%, #5FD8FF 81.77%, #E4FFBC 100%);
-    }
-    .blue-button{
-        background: linear-gradient(90deg, #3DB5F9 0%, #B8EAFF 72.58%);
-        box-shadow: -20px 4px 50px #3DE8FF;
-        border-radius: 73px;
+        background: linear-gradient(56.59deg, #A34EDF 0%, #557AFF 27.6%, #5FD8FF 81.77%);
     }
     .bg-offset{
-        background: rgba(227, 248, 255, 0.3);
-        box-shadow: 0px 4px 44px rgba(125, 161, 206, 0.3);
-        backdrop-filter: blur(27px);
-        /* Note: backdrop-filter has minimal browser support */
-        border-radius: 36px;
+        background: rgba(130, 166, 208, 0.25);
+        box-shadow: 0px 4px 15px #4A7996;
+        border-radius: 20px;
     }
-    .shrine{
-        box-shadow: 0px 4px 44px #5FD8FF;
+    .blue-grad{
+        background: linear-gradient(90deg, #1DF1FF 0%, #9AF9FF 100%);
+        box-shadow: 0px 4px 104px #3DF4FF;
     }
+    .green-grad{
+        background: linear-gradient(90deg, #4FDA76 0%, #62FFC6 100%);
+        box-shadow: 0px 4px 104px #3DF4FF;
+    }
+
 }
 
 table.iksweb{text-decoration: none;border-collapse:collapse;width:100%;text-align:center;}

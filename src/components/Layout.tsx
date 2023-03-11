@@ -1,39 +1,74 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 
-const children = ( remainingTime :any) => {
+const children = (remainingTime: any) => {
     const hours = Math.floor(remainingTime / 3600)
     const minutes = Math.floor((remainingTime % 3600) / 60)
     const seconds = remainingTime % 60
 
-    return `${hours}:${minutes}:${seconds}`
 }
-const Layout = (props:any) => {
-    return (
-        <div className={'min-h-screen back-grad grid grid-cols-12 grid-rows-1 gap-x-2'}>
-            <div className={'col-span-2 h-full flex flex-col p-4 items-start justify-center '}>
-                <div className={'fixed w-52 top-0'}>
-                    <div className={'w-40 h-14 mb-5 mt-10 relative'}>
-                        <Image src={'/images/icons/logo.svg'} alt={'logo'} layout={'fill'}></Image>
-                    </div>
-                    <div>
-                        <Navbar></Navbar>
-                    </div>
-                    <div className={'flex mt-5 flex-col items-center'}>
-                        <CountdownCircleTimer isPlaying={true} duration={152} trailColor={'#81A8FF'} colors={'#FFF'}>{({ remainingTime }) => <div className={'flex-col justify-center items-center'}><p className={'font-bold text-white text-3xl text-center'}>{children(remainingTime)}</p></div>}</CountdownCircleTimer>
-                        <p className={'text-white mt-4 font-bold text-xl'}>Time till first sale</p>
-                    </div>
+const Layout = (props: any) => {
 
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false)
+
+    const [navBarWide, setNavbarWide] = useState('span 3/ span 3')
+    const [contentWide, setContentWide] = useState('span 9/ span 9')
+
+    const [animationNav,setAnimationNav]=useState('')
+
+    const toggleNav = () => {
+
+        setIsNavbarOpen(!isNavbarOpen)
+
+        if (isNavbarOpen) {
+            setNavbarWide('span 3/ span 3')
+            setContentWide('span 9/ span 9')
+        } else {
+            setNavbarWide(' span 1/ span 1 ')
+            setContentWide(' span 11/ span 11 ')
+        }
+    }
+
+    if(!isNavbarOpen){
+        return (
+            <div className={'min-h-screen back-grad grid grid-cols-12 grid-rows-1 gap-1'}>
+                <div
+                    className={'h-full flex flex-col p-4 items-start transition-transform transition-all col-span-3 justify-start transition-all duration-1000 ease-in-out '}
+                >
+                    <div className={'w-full relative'}>
+                        <div className={'w-full'}>
+                            <Navbar toggleNavbar={toggleNav} isOpen={isNavbarOpen}></Navbar>
+                        </div>
+                    </div>
+                </div>
+                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-9'} >
+                    {props.children}
                 </div>
             </div>
-            <div className={'col-span-10 py-16 px-5'}>
-                <p className={'text-white mb-3 font-bold text-5xl'}>{props.title}</p>
-                {props.children}
+        );
+    }
+    else{
+        return (
+            <div className={'min-h-screen back-grad grid grid-cols-12 grid-rows-1 gap-1'}>
+                <div
+                    className={'h-full flex flex-col p-4 items-start col-span-1 transition-transform transition-all justify-start transition-all duration-1000 ease-in-out '}
+                >
+                    <div className={'w-full relative'}>
+                        <div className={'w-full'}>
+                            <Navbar toggleNavbar={toggleNav} isOpen={isNavbarOpen}></Navbar>
+                        </div>
+                    </div>
+                </div>
+                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-11'} >
+                    {props.children}
+                </div>
             </div>
-        </div>
-    );
+        );
+
+    }
+
 };
 
 export default Layout;
