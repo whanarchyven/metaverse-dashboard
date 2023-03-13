@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -10,19 +11,41 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage:{
+        'offset':'rgba(130, 166, 208, 0.25)',
+        'black-offset':'#1A304F',
+      },
       animation: {
         "spin-slow": "spin 3s linear infinite",
         "spin-reverse": "spinreverse 3s linear infinite",
-        "fade-in-right": "fadeinright 1s ease-out",
-        "fade-in-left": "fadeinleft 1s ease-out",
+        "fade-in-right": "fadeinright 0.3s ease-out",
+        "fade-in-left": "fadeinleft 0.3s ease-out",
         "fade-in-left-sec": "fadeinleftsec 1s ease-out",
         "zoom-out": "zoomout 1s ease-in-out",
         "fade-in-down": "fadeInDown 300ms ease-out",
         "push-note": "pushNote 3s ease-in-out",
         "drop-top-one": "dropTopOne 6s linear",
         "drop-top-two": "dropTopOne 4s linear",
+        "switch-theme-on":"toggleThemeOn 0.2s ease-in-out",
+        "switch-theme-off":"toggleThemeOff 0.2s ease-in-out"
       },
       keyframes: {
+        toggleThemeOn:{
+          "0%":{
+            transform:"translateX(-100%)"
+          },
+          "100%":{
+            transform:"translateX(0%)"
+          }
+        },
+        toggleThemeOff:{
+          "0%":{
+            transform:"translateX(100%)"
+          },
+          "100%":{
+            transform:"translateX(0%)"
+          }
+        },
         spinreverse: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-360deg)" },

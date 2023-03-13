@@ -20,7 +20,7 @@ const PercentChar = ({data,labels,title,value,stonks}:percentChar) => {
         datasets:[
             {
                 label: 'Filled',
-                backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 borderColor: '#fff',
                 data: data,
                 fill: true,
@@ -83,17 +83,18 @@ const PercentChar = ({data,labels,title,value,stonks}:percentChar) => {
                     weight: 'bold'
                 }
             }
-        }
+        },
+        maintainAspectRatio : false
     }
 
     return (
-        <div className={'w-full mb-5 relative overflow-clip bg-white  bg-offset rounded-xl '}>
+        <div className={'w-full dark:bg-black-offset transition-colors duration-300 mb-5 relative overflow-clip bg-white  bg-offset rounded-xl '}>
             <div className={'pl-3 mt-2 mb-4'}>
                 <p className={'text-white self-start mb-3 font-light opacity-50 text-sm'}>{title}</p>
                 <p className={'text-white self-start mb-3 font-black text-3xl'}>{value}</p>
                 <StonksTab stonks={stonks}></StonksTab>
             </div>
-            <div className={'relative -ml-5 scale-[1.25]'}>
+            <div className={'relative h-[120px] -ml-5 scale-[1.25]'}>
                 <Line className={''} id={'suka'} options={chartOptions} data={marketData}></Line>
             </div>
         </div>

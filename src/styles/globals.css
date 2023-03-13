@@ -62,11 +62,19 @@ body{
     .back-grad{
         background: linear-gradient(56.59deg, #A34EDF 0%, #557AFF 27.6%, #5FD8FF 81.77%);
     }
+    .black-back-grad{
+        background: linear-gradient(56.59deg, #2F1D3C 0%, #1F2745 27.6%, #284F5B 81.77%, #3F635A 100%);
+    }
     .bg-offset{
         background: rgba(130, 166, 208, 0.25);
         box-shadow: 0px 4px 15px #4A7996;
         border-radius: 20px;
     }
+    .bg-black-offset{
+        background: #1A304F;
+        box-shadow: 0px 4px 15px #264355;
+    }
+
     .blue-grad{
         background: linear-gradient(90deg, #1DF1FF 0%, #9AF9FF 100%);
         box-shadow: 0px 4px 104px #3DF4FF;

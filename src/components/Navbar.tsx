@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import Image from "next/image";
 import {useRouter} from "next/router";
 import LinkTab from "@/components/UI/LinkTab";
+import darkMode from "@/components/helpers/darkmodeAtom";
 import it from "node:test";
+import {useRecoilState} from "recoil";
 
 interface navbar {
     isOpen: boolean
@@ -11,9 +13,9 @@ interface navbar {
 
 const Navbar = ({isOpen, toggleNavbar}: navbar) => {
 
-
     const router = useRouter()
 
+    const [isDarkTheme,setIsDarkTheme]=useRecoilState(darkMode)
 
     const tempPages = [
         {
@@ -35,15 +37,17 @@ const Navbar = ({isOpen, toggleNavbar}: navbar) => {
             isDisabled: true,
         },
     ]
+
+
     if (!isOpen) {
         return (
-            <div className={'w-full transform-gpu p-5 bg-offset bg-opacity-25 flex flex-col items-start justify-start'}>
+            <div className={'w-full transform-gpu p-5 transition-colors duration-300 dark:bg-black-offset bg-offset bg-opacity-25 flex flex-col items-start justify-start'}>
                 <div className={'flex items-center w-full justify-between'}>
                     <div className={'w-48 h-16 mb-8 mt-2 relative'}>
                         <Image src={'/images/icons/logo.svg'} alt={'logo'} layout={'fill'}></Image>
                     </div>
                     <div
-                        className={'aspect-square flex justify-center items-center p-2 relative w-10 rounded-full bg-white bg-opacity-[0.15]'}
+                        className={'aspect-square cursor-pointer flex justify-center items-center p-2 relative w-10 rounded-full bg-white bg-opacity-[0.15]'}
                         onClick={() => {
                             toggleNavbar()
                         }}>
@@ -67,13 +71,25 @@ const Navbar = ({isOpen, toggleNavbar}: navbar) => {
                         return <LinkTab key={item.title} url={item.url} title={item.title} icon={item.icon}
                                         isDisabled={item.isDisabled}></LinkTab>
                     })}
+
+                    <div className={'w-full h-12 py-2 px-4 rounded-xl flex items-center justify-between '}>
+                        <div className={'flex'} >
+                            <img src={isDarkTheme.isDark?'/images/icons/dark_theme.svg':'/images/icons/light_theme.svg'} className={'aspect-square w-5'}/>
+                            <p className={'ml-2 font-semibold text-lg text-white'}>{isDarkTheme.isDark?'Dark theme':'Light theme'}</p>
+                        </div>
+                        <div className={' h-8 bg-white dark:justify-end duration-300 rounded-full w-14 p-[0.3rem] flex justify-start bg-opacity-[0.15]'} onClick={()=>{setIsDarkTheme({isDark: !isDarkTheme.isDark})}}>
+                            <div className={'animate-switch-theme-off bg-white dark:animate-switch-theme-on dark:bg-[#8BF8FF] rounded-full h-full transition-all duration-300 aspect-square'}>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
     } else {
         return (
             <div
-                className={'aspect-square flex justify-center items-center p-4 relative w-16 rounded-full bg-white bg-opacity-[0.15]'}
+                className={'aspect-square cursor-pointer flex justify-center items-center p-4 relative w-16 rounded-full dark:bg-black-offset bg-white bg-opacity-[0.15]'}
                 onClick={() => {
                     toggleNavbar()
                 }}>

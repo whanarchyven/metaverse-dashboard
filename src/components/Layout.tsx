@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 
+import {useRecoilState} from "recoil";
 const children = (remainingTime: any) => {
     const hours = Math.floor(remainingTime / 3600)
     const minutes = Math.floor((remainingTime % 3600) / 60)
@@ -18,24 +19,30 @@ const Layout = (props: any) => {
 
     const [animationNav,setAnimationNav]=useState('')
 
+
+
     const toggleNav = () => {
 
-        setIsNavbarOpen(!isNavbarOpen)
-
-        if (isNavbarOpen) {
-            setNavbarWide('span 3/ span 3')
-            setContentWide('span 9/ span 9')
-        } else {
-            setNavbarWide(' span 1/ span 1 ')
-            setContentWide(' span 11/ span 11 ')
+        if(!isNavbarOpen){
+            setAnimationNav(' animate-fade-in-left ')
         }
+        else{
+            setAnimationNav(' animate-fade-in-right ')
+        }
+
+        setTimeout(()=>{
+            setIsNavbarOpen(!isNavbarOpen)
+        },0)
+
     }
+
+
 
     if(!isNavbarOpen){
         return (
-            <div className={'min-h-screen back-grad grid grid-cols-12 grid-rows-1 gap-1'}>
+            <div className={'min-h-screen transition-all transition-colors duration-300 duration-300 dark:black-back-grad back-grad grid grid-cols-12 grid-rows-1 gap-1 overflow-clip'}>
                 <div
-                    className={'h-full flex flex-col p-4 items-start transition-transform transition-all col-span-3 justify-start transition-all duration-1000 ease-in-out '}
+                    className={'h-full flex flex-col p-4 items-start transition-transform transition-all col-span-3 justify-start transition-all duration-1000 ease-in-out '   +animationNav}
                 >
                     <div className={'w-full relative'}>
                         <div className={'w-full'}>
@@ -43,7 +50,7 @@ const Layout = (props: any) => {
                         </div>
                     </div>
                 </div>
-                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-9'} >
+                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-9'  +animationNav}  >
                     {props.children}
                 </div>
             </div>
@@ -51,9 +58,9 @@ const Layout = (props: any) => {
     }
     else{
         return (
-            <div className={'min-h-screen back-grad grid grid-cols-12 grid-rows-1 gap-1'}>
+            <div className={'min-h-screen transition-colors duration-300 dark:black-back-grad back-grad grid grid-cols-12 grid-rows-1 gap-1 overflow-clip'}>
                 <div
-                    className={'h-full flex flex-col p-4 items-start col-span-1 transition-transform transition-all justify-start transition-all duration-1000 ease-in-out '}
+                    className={'h-full flex flex-col p-4 items-start col-span-1 transition-transform transition-all justify-start transition-all duration-1000 ease-in-out ' +animationNav}
                 >
                     <div className={'w-full relative'}>
                         <div className={'w-full'}>
@@ -61,7 +68,7 @@ const Layout = (props: any) => {
                         </div>
                     </div>
                 </div>
-                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-11'} >
+                <div className={'transition-all p-4 duration-1000 ease-in-out col-span-11' +animationNav} >
                     {props.children}
                 </div>
             </div>
