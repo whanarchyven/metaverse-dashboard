@@ -77,7 +77,7 @@ const Navbar = ({isOpen, toggleNavbar}: navbar) => {
                             <img src={isDarkTheme.isDark?'/images/icons/dark_theme.svg':'/images/icons/light_theme.svg'} className={'aspect-square w-5'}/>
                             <p className={'ml-2 font-semibold text-lg text-white'}>{isDarkTheme.isDark?'Dark theme':'Light theme'}</p>
                         </div>
-                        <div className={' h-8 bg-white dark:justify-end duration-300 rounded-full w-14 p-[0.3rem] flex justify-start bg-opacity-[0.15]'} onClick={()=>{setIsDarkTheme({isDark: !isDarkTheme.isDark})}}>
+                        <div className={' h-8 bg-white cursor-pointer dark:justify-end duration-300 rounded-full w-14 p-[0.3rem] flex justify-start bg-opacity-[0.15]'} onClick={()=>{setIsDarkTheme({isDark: !isDarkTheme.isDark})}}>
                             <div className={'animate-switch-theme-off bg-white dark:animate-switch-theme-on dark:bg-[#8BF8FF] rounded-full h-full transition-all duration-300 aspect-square'}>
 
                             </div>
