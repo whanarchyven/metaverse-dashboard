@@ -36,7 +36,7 @@ const SellingTable = ({icons,title,transactions}:tableInterface) => {
                         border='border-b-[0.5px] border-[rgba(255,255,255,0.4)]'
                     }
 
-                    return <div className={' gap-2 p-4 grid rounded-t-xl text-white grid-cols-12 items-center '+border}>
+                    return <div className={' gap-2 p-4 grid rounded-t-xl text-white grid-cols-12 items-center '+border} key={counter}>
                         <div className={'col-span-5 flex items-center justify-start'}>
                             <div className={'flex items-center mr-3 font-[200] justify-center'}>
                                 {counter+1}
